@@ -23,8 +23,8 @@ export default function Navbar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-            MyShop
+          <Typography variant="h6" sx={{ fontWeight: "bold", fontFamily: "Comfortaa, sans-serif" }}>
+            Thozha
           </Typography>
         </Box>
 
