@@ -12,7 +12,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 export default function Navbar() {
   return (
     <AppBar position="static" sx={{bgcolor:'#AC74EC'}}>
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between",mt:1, mb:1 }}>
 
         {/* Left: Logo */}
         <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -42,8 +42,8 @@ export default function Navbar() {
             padding: "4px 10px",
           }}
         >
-          <SearchIcon sx={{ mr: 1 }} />
-          <InputBase placeholder="Search products…" fullWidth />
+          <SearchIcon sx={{ mr: 1, color: "#7c13f4" }} />
+          <InputBase placeholder="Search In Thozha" fullWidth sx={{fontFamily: "Comfortaa, sans-serif", fontSize:17}}/>
         </Box>
 
         {/* Right: Icons */}
