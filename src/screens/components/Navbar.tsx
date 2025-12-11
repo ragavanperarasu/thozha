@@ -9,12 +9,14 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
+
+
 export default function Navbar() {
   return (
-    <AppBar position="static" sx={{bgcolor:'#AC74EC'}}>
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between",mt:1, mb:1 }}>
+    <AppBar position="fixed" sx={{ bgcolor: "#AC74EC", boxShadow: "none" }}>
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between", mt: 1, mb: 1 }}>
 
-        {/* Left: Logo */}
+        {/* Left Logo */}
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <IconButton
             color="inherit"
@@ -28,7 +30,7 @@ export default function Navbar() {
           </Typography>
         </Box>
 
-        {/* Center: Search Box */}
+        {/* Search Box */}
         <Box
           sx={{
             flexGrow: 1,
@@ -36,17 +38,22 @@ export default function Navbar() {
             display: "flex",
             alignItems: "center",
             mx: 2,
-            bgcolor: "rgba(255, 255, 255)",
+            bgcolor: "white",
             borderRadius: 2,
             border: "1px solid #7c13f4",
             padding: "4px 10px",
+            
           }}
         >
           <SearchIcon sx={{ mr: 1, color: "#7c13f4" }} />
-          <InputBase placeholder="Search In Thozha" fullWidth sx={{fontFamily: "Comfortaa, sans-serif", fontSize:17}}/>
+          <InputBase
+            placeholder="Search In Thozha"
+            fullWidth
+            sx={{ fontFamily: "Comfortaa, sans-serif", fontSize: 17 }}
+          />
         </Box>
 
-        {/* Right: Icons */}
+        {/* Right Icons */}
         <Box sx={{ display: "flex", gap: 1 }}>
           <IconButton color="inherit">
             <ShoppingCartIcon />
@@ -56,6 +63,10 @@ export default function Navbar() {
           </IconButton>
         </Box>
       </Toolbar>
+
+      {/* Delivery Address */}
+
+      
     </AppBar>
   );
 }
