@@ -18,13 +18,13 @@ export default function Navbar() {
 
         {/* Left Logo */}
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <IconButton
+          {/* <IconButton
             color="inherit"
             edge="start"
             sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h6" sx={{ fontWeight: "bold", fontFamily: "Comfortaa, sans-serif" }}>
             Thozha
           </Typography>
@@ -35,7 +35,7 @@ export default function Navbar() {
           sx={{
             flexGrow: 1,
             maxWidth: 500,
-            display: "flex",
+            display: {xs:"none", md:"flex"},
             alignItems: "center",
             mx: 2,
             bgcolor: "white",
