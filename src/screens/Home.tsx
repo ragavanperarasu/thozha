@@ -196,11 +196,11 @@ const Home = () => {
           {products.map((item) => (
             <Grid key={item.id} item size={{ xs: 6, md: 4, lg: 2 }}>
               <Card
-                sx={{ borderRadius: 3, border: "1px solid #7c13f4", pt: 3 }}
+                sx={{ borderRadius: 3,boxShadow:'none', pt: 3 }}
               >
                 <CardMedia
                   component="img"
-                  height="150"
+                  height="200"
                   image={item.img}
                   alt={item.name}
                   style={{ objectFit: "contain", padding: 10 }}
