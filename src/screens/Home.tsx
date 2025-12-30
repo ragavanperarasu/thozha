@@ -42,7 +42,7 @@ const Home = () => {
     <>
       <Navbar />
 
-      <Box
+      {/* <Box
         sx={{
           display: "flex",
           justifyContent: "center",
@@ -64,18 +64,19 @@ const Home = () => {
         >
           Deliver to Chennai - 600128
         </Typography>
-      </Box>
+      </Box> */}
 
       {/* Category Section */}
       <Box
         sx={{
           display: "flex",
+          mt: { xs: 8, sm: 10, md: 10 },
           justifyContent: "space-around",
           bgcolor: "white",
           py: 1,
           px: 1,
-          borderBottom: "1px solid #7c13f4",
-
+          // borderBottom: "1px solid #7c13f4",
+          backgroundColor:'#f4ebffff',
           position: "sticky",
           top: { xs: 70, sm: 80, md: 80 },
           zIndex: 10,
