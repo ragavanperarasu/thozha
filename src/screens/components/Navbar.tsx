@@ -18,18 +18,19 @@ export default function Navbar() {
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", mt: 1, mb: 1 }}>
 
         {/* Left Logo */}
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          {/* <IconButton
-            color="inherit"
-            edge="start"
-            sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
-          <Typography variant="h6" sx={{ fontWeight: "bold", fontFamily: "Comfortaa, sans-serif" }}>
-            Thozha
-          </Typography>
-        </Box>
+<Box sx={{ display: "flex", alignItems: "center" }}>
+  <Box
+    component="img"
+    src="vite.svg"
+    alt="Thozha Logo"
+    sx={{
+      height: 42,
+      width: "auto",
+      cursor: "pointer",
+    }}
+  />
+</Box>
+
 
         {/* Search Box */}
         {/* <Box
