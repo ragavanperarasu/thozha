@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import homepro from "../assets/homeapplicance.png";
 import electronic from "../assets/electronic.webp";
 import mobilepic from "../assets/mobile.webp";
+import Footer from "./components/Footer";
+import { Link } from "react-router-dom";
 
 import m1 from "../assets/m1.jpeg";
 import m2 from "../assets/m2.jpeg";
@@ -196,6 +198,8 @@ const Home = () => {
           {products.map((item) => (
             <Grid key={item.id} item size={{ xs: 6, md: 4, lg: 2 }}>
               <Card
+              component={Link}
+  to={`/product/1`}
                 sx={{ borderRadius: 3,boxShadow:'none', pt: 3 }}
               >
                 <CardMedia
@@ -358,6 +362,7 @@ const Home = () => {
           ))}
         </Grid>
       </Box>
+      <Footer/>
     </>
   );
 };

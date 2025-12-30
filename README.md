@@ -1,73 +1,98 @@
-# React + TypeScript + Vite
+# Thozha - E-commerce Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Thozha** is a modern e-commerce web application built with React, TypeScript, and Vite. It's a responsive online shopping platform that showcases electronic products, smartphones, and home appliances with an attractive UI.
 
-Currently, two official plugins are available:
+## 🛒 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Responsive design using Material-UI Grid system
+- Product catalog with images, names, and prices
+- Category navigation (Smartphones, Home Appliances, Electronics)
+- Search functionality with auto-suggestions
+- Shopping cart and user account icons
+- Attractive purple-themed color scheme
+- Visual product organization with cards
 
-## React Compiler
+## 🛠️ Technology Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend Framework**: React 19.2.0
+- **Language**: TypeScript
+- **Build Tool**: Vite 7.2.4
+- **UI Library**: Material-UI (MUI) with icons and styled components
+- **Styling**: CSS with Material-UI's styling system
+- **Routing**: React Router DOM
+- **HTTP Client**: Axios (though not yet implemented in current code)
+- **State Management**: React Hooks (useState)
 
-## Expanding the ESLint configuration
+## 📁 Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── screens/
+│   ├── components/
+│   │   ├── Footer.tsx        # Footer component with links
+│   │   ├── Navbar.tsx        # Navigation bar with search functionality
+│   │   └── SearchBox.tsx     # Search with auto-suggestions
+│   ├── About.tsx             # About page (currently basic)
+│   └── Home.tsx              # Main homepage with product listings
+├── App.tsx                   # Main routing component
+├── main.tsx                  # Entry point with BrowserRouter
+├── index.css                 # Basic CSS reset
+└── assets/                   # Images for products and UI elements
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Make sure you have Node.js installed on your system.
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open your browser and navigate to `http://localhost:5173` (or the port shown in the terminal)
+
+## 📋 Components Overview
+
+- **App Component**: Main routing component that handles navigation between different pages
+- **Home Component**: Main landing page with product listings, category navigation, and discounts
+- **Navbar Component**: Fixed header with logo, search functionality, and action icons
+- **SearchBox Component**: Provides search with real-time filtering and auto-suggestions
+- **Footer Component**: Consistent footer with brand information and navigation links
+
+## 🎨 UI Features
+
+- Responsive design adapting to mobile, tablet, and desktop screens
+- Product cards with images, names, and pricing in Indian Rupees (₹)
+- Category navigation with visual icons
+- Sticky navigation header
+- Purple-themed color scheme (#AC74EC)
+- Auto-suggesting search functionality
+- Interactive elements with hover effects
+
+## 🔄 Future Enhancements
+
+- Backend integration for dynamic product data
+- Product detail pages
+- Shopping cart functionality with state management
+- User authentication and account management
+- Checkout and payment processing
+- Order history and tracking
+- Product reviews and ratings system
+- Wishlist functionality
+- Advanced search and filtering options
+
+## 🚧 Current Status
+
+The application is in early development stage with a solid foundation. It has a clean, modern UI with the basic e-commerce layout established. The next steps would involve implementing backend integration, cart functionality, and user authentication.
+
+## 📄 License
+
+This project is open source and available under the MIT License.
