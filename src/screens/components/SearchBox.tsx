@@ -14,6 +14,7 @@ import GamepadIcon from '@mui/icons-material/Gamepad';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import HelpIcon from '@mui/icons-material/Help';
+import { useNavigate } from 'react-router-dom';
 
 const sampleData = [
   "Smartphone",
@@ -100,7 +101,32 @@ async function fetchSearchSuggestions(query) {
 }
 */
 
+// Template function for searching products from API
+/*
+async function searchProducts(query) {
+  try {
+    // Example API call to search products - replace with your actual API endpoint
+    const response = await fetch(`/api/products/search?q=${encodeURIComponent(query)}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    // Navigate to ProductList with search results
+    // This would be called instead of direct navigation to allow server-side filtering
+    return data.products || [];
+  } catch (error) {
+    console.error('Error searching products:', error);
+    // Fallback to client-side navigation
+    return [];
+  }
+}
+*/
+
 export default function SearchBox() {
+  const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [show, setShow] = useState(false);
   // State for API-based suggestions
@@ -135,6 +161,8 @@ export default function SearchBox() {
     }
   }, [query]);
 
+
+
   return (
     <Box
       sx={{
@@ -159,6 +187,12 @@ export default function SearchBox() {
         onChange={(e) => {
           setQuery(e.target.value);
           setShow(true);
+        }}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' && query.trim()) {
+            navigate('/products');
+            setShow(false);
+          }
         }}
         sx={{ fontFamily: "Comfortaa, sans-serif", fontSize: 17 }}
       />
@@ -186,7 +220,7 @@ export default function SearchBox() {
               <ListItem
                 key={index}
                 onClick={() => {
-                  setQuery(item);
+                  navigate('/products');
                   setShow(false);
                 }}
                 sx={{ cursor: 'pointer', '&:hover': { backgroundColor: '#f0f0f0' }, display: 'flex', alignItems: 'center' }}
