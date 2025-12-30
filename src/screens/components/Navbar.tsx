@@ -8,6 +8,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import SearchBox from "./SearchBox";
 
 
 
@@ -31,7 +32,7 @@ export default function Navbar() {
         </Box>
 
         {/* Search Box */}
-        <Box
+        {/* <Box
           sx={{
             flexGrow: 1,
             maxWidth: 500,
@@ -51,7 +52,9 @@ export default function Navbar() {
             fullWidth
             sx={{ fontFamily: "Comfortaa, sans-serif", fontSize: 17 }}
           />
-        </Box>
+        </Box> */}
+
+        <SearchBox />
 
         {/* Right Icons */}
         <Box sx={{ display: "flex", gap: 1 }}>
