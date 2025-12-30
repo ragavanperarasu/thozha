@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import homepro from "../assets/homeapplicance.png";
 import electronic from "../assets/electronic.webp";
 import mobilepic from "../assets/mobile.webp";
+import Footer from "./components/Footer";
 
 import m1 from "../assets/m1.jpeg";
 import m2 from "../assets/m2.jpeg";
@@ -358,6 +359,7 @@ const Home = () => {
           ))}
         </Grid>
       </Box>
+      <Footer/>
     </>
   );
 };
