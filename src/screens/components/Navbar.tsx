@@ -21,10 +21,10 @@ export default function Navbar() {
 <Box sx={{ display: "flex", alignItems: "center" }}>
   <Box
     component="img"
-    src="vite.svg"
+    src="logo.png"
     alt="Thozha Logo"
     sx={{
-      height: 42,
+      height:42,
       width: "auto",
       cursor: "pointer",
     }}
