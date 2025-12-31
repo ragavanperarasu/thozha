@@ -128,9 +128,14 @@ async function searchProducts(query) {
 export default function SearchBox() {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
+  const [originalQuery, setOriginalQuery] = useState(""); // Store original query separately
   const [show, setShow] = useState(false);
   // State for API-based suggestions
   const [suggestions, setSuggestions] = useState<string[]>([]);
+  // State for keyboard navigation
+  const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
+  // State to track if we're in autocomplete mode
+  const [isAutocompleteMode, setIsAutocompleteMode] = useState(false);
 
   // Function to get suggestions (currently using sample data, will use API in future)
   const getSuggestions = (inputQuery: string) => {
@@ -149,17 +154,20 @@ export default function SearchBox() {
 
   // Update suggestions when query changes
   useEffect(() => {
-    if (query.trim() !== "") {
+    if (originalQuery.trim() !== "") {
       // In the future, this will call the API function
       // const apiSuggestions = await fetchSearchSuggestions(query);
       // setSuggestions(apiSuggestions);
       
       // For now, using sample data
-      setSuggestions(getSuggestions(query));
+      setSuggestions(getSuggestions(originalQuery));
     } else {
       setSuggestions([]);
     }
-  }, [query]);
+    
+    // Reset active suggestion index when suggestions change
+    setActiveSuggestionIndex(-1);
+  }, [originalQuery]);
 
 
 
@@ -183,15 +191,57 @@ export default function SearchBox() {
       <InputBase
         placeholder="Search In Thozha"
         fullWidth
-        value={query}
+        value={
+          activeSuggestionIndex >= 0 && isAutocompleteMode && suggestions[activeSuggestionIndex]
+            ? suggestions[activeSuggestionIndex] // Show suggestion when navigating
+            : query // Show original query otherwise
+        }
         onChange={(e) => {
-          setQuery(e.target.value);
+          const newValue = e.target.value;
+          setQuery(newValue);
+          setOriginalQuery(newValue); // Keep track of original query
           setShow(true);
+          setIsAutocompleteMode(false); // Reset autocomplete mode when user types
+          setActiveSuggestionIndex(-1); // Reset active suggestion when user types
         }}
         onKeyDown={(e) => {
           if (e.key === 'Enter' && query.trim()) {
-            navigate('/products');
+            if (activeSuggestionIndex >= 0 && suggestions[activeSuggestionIndex] && isAutocompleteMode) {
+              // Navigate with the selected suggestion
+              setQuery(suggestions[activeSuggestionIndex]); // Update query to the selected suggestion
+              navigate('/products');
+              setShow(false);
+              setActiveSuggestionIndex(-1);
+              setIsAutocompleteMode(false);
+            } else {
+              // Navigate with current query
+              navigate('/products');
+              setShow(false);
+              setActiveSuggestionIndex(-1);
+              setIsAutocompleteMode(false);
+            }
+          } else if (e.key === 'ArrowDown' && suggestions.length > 0) {
+            e.preventDefault(); // Prevent page scrolling
+            const newIndex = activeSuggestionIndex < suggestions.length - 1 ? activeSuggestionIndex + 1 : 0;
+            setActiveSuggestionIndex(newIndex);
+            setIsAutocompleteMode(true); // Enable autocomplete mode
+          } else if (e.key === 'ArrowUp' && suggestions.length > 0) {
+            e.preventDefault(); // Prevent page scrolling
+            const newIndex = activeSuggestionIndex > 0 ? activeSuggestionIndex - 1 : suggestions.length - 1;
+            setActiveSuggestionIndex(newIndex);
+            setIsAutocompleteMode(true); // Enable autocomplete mode
+          } else if (e.key === 'Escape') {
+            // Hide suggestions and reset state when Escape is pressed
             setShow(false);
+            setActiveSuggestionIndex(-1);
+            setIsAutocompleteMode(false);
+            setQuery(query); // Restore original query
+          } else if ((e.key === 'Tab' || e.key === 'ArrowRight') && activeSuggestionIndex >= 0 && suggestions[activeSuggestionIndex]) {
+            // Accept the current suggestion and allow user to continue typing
+            e.preventDefault(); // Prevent default Tab behavior
+            setQuery(suggestions[activeSuggestionIndex]); // Set the full suggestion as query
+            setShow(false); // Hide suggestions
+            setIsAutocompleteMode(false); // Exit autocomplete mode
           }
         }}
         sx={{ fontFamily: "Comfortaa, sans-serif", fontSize: 17 }}
@@ -222,8 +272,15 @@ export default function SearchBox() {
                 onClick={() => {
                   navigate('/products');
                   setShow(false);
+                  setActiveSuggestionIndex(-1);
                 }}
-                sx={{ cursor: 'pointer', '&:hover': { backgroundColor: '#f0f0f0' }, display: 'flex', alignItems: 'center' }}
+                sx={{ 
+                  cursor: 'pointer', 
+                  '&:hover': { backgroundColor: '#f0f0f0' }, 
+                  display: 'flex', 
+                  alignItems: 'center',
+                  backgroundColor: index === activeSuggestionIndex ? '#e0d0f5' : 'transparent' // Highlight active suggestion
+                }}
               >
                 {getIconForSuggestion(item)}
                 <ListItemText 
