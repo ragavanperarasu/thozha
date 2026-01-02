@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 import {
   Box,
@@ -412,6 +413,7 @@ const ProductList = () => {
           </Box>
         )}
       </Box>
+      <Footer />
     </>
   );
 };

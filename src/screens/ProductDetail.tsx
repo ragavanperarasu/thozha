@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
 
@@ -153,9 +154,9 @@ const ProductDetail = () => {
         {/* RIGHT - Details */}
         <Box sx={{ flex: 1 }}>
           <Typography
-            variant={{ xs: "h6", md: "h5" }}
+            variant="h6"
             fontWeight="bold"
-            sx={{ fontFamily: "Comfortaa" }}
+            sx={{ fontFamily: "Comfortaa", fontSize: { xs: "1.25rem", md: "1.5rem" } }}
           >
             {product.name}
           </Typography>
@@ -246,6 +247,7 @@ const ProductDetail = () => {
 
       </Stack>
     </Box>
+    <Footer />
   </>
 );
 
