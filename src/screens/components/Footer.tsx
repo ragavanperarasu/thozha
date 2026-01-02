@@ -56,10 +56,10 @@ const Footer = () => {
             Quick Links
           </Typography>
           <Stack spacing={1}>
-            <FooterLink text="Home" />
-            <FooterLink text="Shop" />
-            <FooterLink text="Categories" />
-            <FooterLink text="Contact Us" />
+            <FooterLink text="Home" url="/" />
+            <FooterLink text="Shop" url="/shop" />
+            <FooterLink text="Categories" url="/categories" />
+            <FooterLink text="Contact Us" url="/contact" />
           </Stack>
         </Box>
 
@@ -70,9 +70,26 @@ const Footer = () => {
           </Typography>
 
           <Stack spacing={1.2}>
-            <InfoItem icon={<LocationOnIcon />} text="Elumalai, Madurai, Tamil Nadu" />
-            <InfoItem icon={<PhoneIcon />} text="+91 7373191951" />
-            <InfoItem icon={<EmailIcon />} text="thozhamobiles551@gmail.com" />
+            {/* Address -> Google Maps */}
+            <InfoItem
+              icon={<LocationOnIcon />}
+              text="Elumalai, Madurai, Tamil Nadu"
+              url="https://maps.app.goo.gl/U4jH15JkNM3f2YUr9"
+            />
+
+            {/* Phone -> WhatsApp */}
+            <InfoItem
+              icon={<PhoneIcon />}
+              text="+91 7373191951"
+              url="https://wa.me/917373191951"
+            />
+
+            {/* Email -> Mail App */}
+            <InfoItem
+              icon={<EmailIcon />}
+              text="thozhamobiles551@gmail.com"
+              url="mailto:thozhamobiles551@gmail.com"
+            />
           </Stack>
         </Box>
 
@@ -82,10 +99,22 @@ const Footer = () => {
             Follow Us
           </Typography>
           <Stack direction="row" spacing={1}>
-            <SocialIcon icon={<FacebookIcon />} />
-            <SocialIcon icon={<InstagramIcon />} />
-            <SocialIcon icon={<TwitterIcon />} />
-            <SocialIcon icon={<LinkedInIcon />} />
+            <SocialIcon
+              icon={<FacebookIcon />}
+              url="https://www.facebook.com"
+            />
+            <SocialIcon
+              icon={<InstagramIcon />}
+              url="https://www.instagram.com/thozha_._mobile?igsh=MWM2bmoxdmwyMjF3cQ=="
+            />
+            <SocialIcon
+              icon={<TwitterIcon />}
+              url="https://www.twitter.com"
+            />
+            <SocialIcon
+              icon={<LinkedInIcon />}
+              url="https://www.linkedin.com"
+            />
           </Stack>
         </Box>
       </Stack>
@@ -105,10 +134,10 @@ const Footer = () => {
   );
 };
 
-/* Reusable Footer Link */
-const FooterLink = ({ text }) => (
+/* Footer Link */
+const FooterLink = ({ text, url }) => (
   <Link
-    href="#"
+    href={url}
     underline="none"
     sx={{
       color: "#555",
@@ -124,22 +153,44 @@ const FooterLink = ({ text }) => (
   </Link>
 );
 
-/* Info Row */
-const InfoItem = ({ icon, text }) => (
-  <Stack direction="row" spacing={1} alignItems="center">
-    <Box sx={{ color: "#555" }}>{icon}</Box>
-    <Typography variant="body2" sx={{ color: "#555" }}>
-      {text}
-    </Typography>
-  </Stack>
+/* Info Item (Clickable Row) */
+const InfoItem = ({ icon, text, url }) => (
+  <Link
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    underline="none"
+    sx={{ color: "inherit" }}
+  >
+    <Stack
+      direction="row"
+      spacing={1}
+      alignItems="center"
+      sx={{
+        color: "#555",
+        transition: "0.3s",
+        "&:hover": {
+          color: "#000",
+        },
+      }}
+    >
+      {icon}
+      <Typography variant="body2">{text}</Typography>
+    </Stack>
+  </Link>
 );
 
 /* Social Icon */
-const SocialIcon = ({ icon }) => (
+const SocialIcon = ({ icon, url }) => (
   <IconButton
+    component="a"
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
     sx={{
       color: "#555",
       border: "1px solid #ddd",
+      transition: "0.3s",
       "&:hover": {
         bgcolor: "#000",
         color: "#fff",
