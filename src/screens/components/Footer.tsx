@@ -1,4 +1,6 @@
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
+
 import {
   Box,
   Typography,
@@ -15,7 +17,6 @@ import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
-
 
 const Footer = () => {
   return (
@@ -56,9 +57,9 @@ const Footer = () => {
             Quick Links
           </Typography>
           <Stack spacing={1}>
-            <FooterLink text="Home" url="/" />
-            <FooterLink text="Shop" url="/shop" />
-            <FooterLink text="Categories" url="/categories" />
+            <FooterLink text="Home" to="/" />
+            <FooterLink text="About Us" to="/about" />
+            <FooterLink text="Shop" to="/products" />
           </Stack>
         </Box>
 
@@ -69,22 +70,22 @@ const Footer = () => {
           </Typography>
 
           <Stack spacing={1.2}>
-            {/* Address -> Google Maps */}
-            <InfoItem
+            {/* Google Maps */}
+            <ExternalLink
               icon={<LocationOnIcon />}
               text="Elumalai, Madurai, Tamil Nadu"
-              url="https://www.google.com/maps/place/Thozha+Mobiles+%26+Home+Appliances/@9.8650631,77.6952434,17z/data=!3m1!4b1!4m6!3m5!1s0x3b073b2175db4535:0x1e16bbf19b2c3e42!8m2!3d9.8650631!4d77.7001143!16s%2Fg%2F11v9h62f__?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+              url="https://www.google.com/maps/place/Thozha+Mobiles+%26+Home+Appliances/@9.8650631,77.6952434,17z"
             />
 
-            {/* Phone -> WhatsApp */}
-            <InfoItem
+            {/* WhatsApp */}
+            <ExternalLink
               icon={<PhoneIcon />}
               text="+91 7373191951"
               url="https://wa.me/917373191951"
             />
 
-            {/* Email -> Mail App */}
-            <InfoItem
+            {/* Email */}
+            <ExternalLink
               icon={<EmailIcon />}
               text="thozhamobiles551@gmail.com"
               url="mailto:thozhamobiles551@gmail.com"
@@ -94,8 +95,8 @@ const Footer = () => {
 
         {/* Social */}
         <Box>
-          <Typography fontWeight="bold" mb={1.0}>
-                Follow Us
+          <Typography fontWeight="bold" mb={1}>
+            Follow Us
           </Typography>
           <Stack direction="row" spacing={1}>
             <SocialIcon
@@ -104,7 +105,7 @@ const Footer = () => {
             />
             <SocialIcon
               icon={<InstagramIcon />}
-              url="https://www.instagram.com/thozha_._mobile?igsh=MWM2bmoxdmwyMjF3cQ=="
+              url="https://www.instagram.com/thozha_._mobile"
             />
             <SocialIcon
               icon={<TwitterIcon />}
@@ -118,21 +119,20 @@ const Footer = () => {
       <Divider sx={{ my: 4 }} />
 
       {/* Bottom */}
-      <Typography
-        variant="body2"
-        align="center"
-        sx={{ color: "#777" }}
-      >
+      <Typography variant="body2" align="center" sx={{ color: "#777" }}>
         © {new Date().getFullYear()} Thozha. All rights reserved.
       </Typography>
     </Box>
   );
 };
 
-/* Footer Link */
-const FooterLink = ({ text, url }) => (
+/* ===================== */
+/* Internal Router Links */
+/* ===================== */
+const FooterLink = ({ text, to }) => (
   <Link
-    href={url}
+    component={RouterLink}
+    to={to}
     underline="none"
     sx={{
       color: "#555",
@@ -148,9 +148,12 @@ const FooterLink = ({ text, url }) => (
   </Link>
 );
 
-/* Info Item (Clickable Row) */
-const InfoItem = ({ icon, text, url }) => (
+/* ===================== */
+/* External Clickable Row */
+/* ===================== */
+const ExternalLink = ({ icon, text, url }) => (
   <Link
+    component="a"
     href={url}
     target="_blank"
     rel="noopener noreferrer"
@@ -164,9 +167,7 @@ const InfoItem = ({ icon, text, url }) => (
       sx={{
         color: "#555",
         transition: "0.3s",
-        "&:hover": {
-          color: "#000",
-        },
+        "&:hover": { color: "#000" },
       }}
     >
       {icon}
@@ -175,7 +176,9 @@ const InfoItem = ({ icon, text, url }) => (
   </Link>
 );
 
+/* ===================== */
 /* Social Icon */
+/* ===================== */
 const SocialIcon = ({ icon, url }) => (
   <IconButton
     component="a"
