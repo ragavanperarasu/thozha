@@ -15,7 +15,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+
 
 const Footer = () => {
   return (
@@ -59,7 +59,6 @@ const Footer = () => {
             <FooterLink text="Home" url="/" />
             <FooterLink text="Shop" url="/shop" />
             <FooterLink text="Categories" url="/categories" />
-            <FooterLink text="Contact Us" url="/contact" />
           </Stack>
         </Box>
 
@@ -95,8 +94,8 @@ const Footer = () => {
 
         {/* Social */}
         <Box>
-          <Typography fontWeight="bold" mb={1.5}>
-            Follow Us
+          <Typography fontWeight="bold" mb={1.0}>
+                Follow Us
           </Typography>
           <Stack direction="row" spacing={1}>
             <SocialIcon
@@ -110,10 +109,6 @@ const Footer = () => {
             <SocialIcon
               icon={<TwitterIcon />}
               url="https://www.twitter.com"
-            />
-            <SocialIcon
-              icon={<LinkedInIcon />}
-              url="https://www.linkedin.com"
             />
           </Stack>
         </Box>
