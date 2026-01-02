@@ -1,3 +1,4 @@
+import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -9,11 +10,19 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SearchBox from "./SearchBox";
+import SearchOverlay from "./SearchOverlay";
 
 
 
 export default function Navbar() {
+  const [isSearchOverlayOpen, setIsSearchOverlayOpen] = useState(false);
+
+  const toggleSearchOverlay = () => {
+    setIsSearchOverlayOpen(!isSearchOverlayOpen);
+  };
+
   return (
+    <>
     <AppBar position="fixed" sx={{ bgcolor: "#AC74EC", boxShadow: "none" }}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", mt: 1, mb: 1 }}>
 
@@ -32,7 +41,7 @@ export default function Navbar() {
 </Box>
 
 
-        {/* Search Box */}
+        {/* Search Box - Hidden now, replaced by search icon */}
         {/* <Box
           sx={{
             flexGrow: 1,
@@ -55,10 +64,13 @@ export default function Navbar() {
           />
         </Box> */}
 
-        <SearchBox />
+        {/* <SearchBox /> */}
 
         {/* Right Icons */}
         <Box sx={{ display: "flex", gap: 1 }}>
+          <IconButton color="inherit" onClick={toggleSearchOverlay}>
+            <SearchIcon />
+          </IconButton>
           <IconButton color="inherit">
             <ShoppingCartIcon />
           </IconButton>
@@ -72,5 +84,7 @@ export default function Navbar() {
 
       
     </AppBar>
+    <SearchOverlay isOpen={isSearchOverlayOpen} onClose={toggleSearchOverlay} />
+    </>
   );
 }
