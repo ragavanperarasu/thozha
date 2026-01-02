@@ -74,7 +74,7 @@ const Footer = () => {
             <InfoItem
               icon={<LocationOnIcon />}
               text="Elumalai, Madurai, Tamil Nadu"
-              url="https://maps.app.goo.gl/U4jH15JkNM3f2YUr9"
+              url="https://www.google.com/maps/place/Thozha+Mobiles+%26+Home+Appliances/@9.8650631,77.6952434,17z/data=!3m1!4b1!4m6!3m5!1s0x3b073b2175db4535:0x1e16bbf19b2c3e42!8m2!3d9.8650631!4d77.7001143!16s%2Fg%2F11v9h62f__?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
             />
 
             {/* Phone -> WhatsApp */}
