@@ -27,20 +27,31 @@ const Category = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <Typography
-          sx={{
-            fontSize: { xs: 32, md: 38 },
-            fontWeight: 800,
-            fontFamily: "Comfortaa, sans-serif",
-            mb: 5,
-            background: "linear-gradient(90deg, #d5b0ffff, #7700ffff)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            textAlign: "center",
-          }}
-        >
-          Shop by Category
-        </Typography>
+<Typography
+  sx={{
+    fontSize: { xs: 32, md: 38 },
+    fontWeight: 800,
+    fontFamily: "Comfortaa, sans-serif",
+    mb: 1,
+    color: "#2f5c70ff", // black
+    textAlign: "center",
+  }}
+>
+  Shop by Category
+</Typography>
+
+<Typography
+  sx={{
+    fontSize: { xs: 32, md: 18 },
+    fontFamily: "Comfortaa, sans-serif",
+    mb: 5,
+    color: "#848482", // black
+    textAlign: "center",
+  }}
+>
+  Browse through our extensive collection of electronics and find exactly<br/> what you need!
+</Typography>
+
       </motion.div>
     <Grid
       container
@@ -63,15 +74,15 @@ const Category = () => {
                 mx: "auto",
                 width: { xs: 44, sm: 86 },
                 height: { xs: 44, sm: 86 },
-                bgcolor: "#ffffff",
-                border: "2px solid #ac63ff",
+                bgcolor: "#f7f1ffff",
+                //border: "2px solid #2f5c70ff",
                 borderRadius: "50%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#ac63ff",
+                color: "#2f5c70ff",
                 transition: "0.3s",
-                boxShadow: "0 4px 12px rgba(172, 99, 255, 0.2)",
+                //boxShadow: "0 4px 12px rgba(172, 99, 255, 0.2)",
                 "&:hover": {
                   bgcolor: "#ac63ff",
                   color: "#ffffff",
@@ -93,7 +104,7 @@ const Category = () => {
               fontFamily: "Comfortaa, sans-serif",
               fontSize: { xs: 10, sm: 16 },
               mt: 1.5,
-              color: "#6b21a8",
+              color: "#2f5c70ff",
               fontWeight: 600,
             }}
           >

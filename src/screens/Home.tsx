@@ -7,6 +7,7 @@ import mobilepic from "../assets/mobile.webp";
 import Footer from "./components/Footer";
 import Category from "./components/Category";
 import { Link } from "react-router-dom";
+import Features from "./components/Features";
 
 
 import m1 from "../assets/m1.jpeg";
@@ -50,6 +51,8 @@ const Home = () => {
       <Navbar />
       {/* <Category /> */}
       <HeroSection />
+
+      <Features />
 
 
 <Box sx={{ px: 2, mt: 8, mb: 10 }}>
