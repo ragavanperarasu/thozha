@@ -37,60 +37,61 @@ const Features = () => {
       sx={{ width: "100%", mt: 5 }}
     >
       {features.map((item, index) => (
-        <Grid item xs={12} sm={6} md={3} key={index}>
-<Box
+        <Grid item xs={6} sm={6} md={3} key={index}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+              p: 2,
+              borderRadius: 3,
+              bgcolor: "#ffffff",
+              transition: "0.3s",
+            }}
+          >
+            {/* Icon */}
+            <Box
               sx={{
+                width: 46,
+                height: 46,
+                borderRadius: "50%",
                 display: "flex",
-                alignItems: "flex-start",
-                gap: 2,
-                p: 2,
-                borderRadius: 3,
-                bgcolor: "#ffffff",
-                transition: "0.3s",
+                alignItems: "center",
+                justifyContent: "center",
+                bgcolor: "#ac63ff1a",
+                color: "#ac63ff",
+                mb: 1,
               }}
             >
-              {/* Icon */}
-              <Box
+              {item.icon}
+            </Box>
+
+            {/* Text Content */}
+            <Box>
+              <Typography
                 sx={{
-                  width: 46,
-                  height: 46,
-                  borderRadius: "50%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  bgcolor: "#ac63ff1a",
-                  color: "#ac63ff",
-                  flexShrink: 0,
+                  fontFamily: "Comfortaa, sans-serif",
+                  fontSize: { xs: 12, sm: 14 },
+                  fontWeight: 700,
+                  color: "#4b0082",
                 }}
               >
-                {item.icon}
-              </Box>
+                {item.label}
+              </Typography>
 
-              {/* Text Content */}
-              <Box>
-                <Typography
-                  sx={{
-                    fontFamily: "Comfortaa, sans-serif",
-                    fontSize: { xs: 15, sm: 16 },
-                    fontWeight: 700,
-                    color: "#4b0082",
-                  }}
-                >
-                  {item.label}
-                </Typography>
-
-                <Typography
-                  sx={{
-                    fontSize: { xs: 13, sm: 14 },
-                    color: "#6b7280",
-                    mt: 0.5,
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {item.desc}
-                </Typography>
-              </Box>
+              <Typography
+                sx={{
+                  fontSize: { xs: 10, sm: 12 },
+                  color: "#6b7280",
+                  mt: 0.5,
+                  lineHeight: 1.3,
+                }}
+              >
+                {item.desc}
+              </Typography>
             </Box>
+          </Box>
         </Grid>
       ))}
     </Grid>

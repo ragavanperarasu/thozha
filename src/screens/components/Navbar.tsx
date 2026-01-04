@@ -38,7 +38,7 @@ export default function Navbar() {
       fontWeight: 800,
     }}
   >
-    Thozha Mobiles
+    Thozha
   </Box>
 </Box>
 
