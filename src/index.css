@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: 279 64% 68%; /* #AC74EC in HSL */
+  --primary-50: 279 64% 97%; /* Lighter shade */
+  --primary-100: 279 64% 94%;
+  --primary-200: 279 64% 88%;
+  --primary-300: 279 64% 68%; /* #AC74EC */
+  --primary-400: 279 64% 58%;
+  --primary-500: 279 64% 48%;
+  --primary-600: 279 40% 59%; /* #8A5BC0 */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Comfortaa', cursive, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #AC74EC;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8A5BC0;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(172, 116, 236, 0.3);
+  color: #1A1A2E;
+}
