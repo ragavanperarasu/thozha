@@ -5,7 +5,7 @@ import WatchIcon from "@mui/icons-material/Watch";
 import LaptopMacIcon from "@mui/icons-material/LaptopMac";
 import TvIcon from "@mui/icons-material/Tv";
 import HeadphonesIcon from "@mui/icons-material/Headphones";
-import SpeakerIcon from "@mui/icons-material/Speaker";
+
 import { Box, Typography, Grid } from "@mui/material";
 
 const categories = [
@@ -15,7 +15,6 @@ const categories = [
   { label: "Laptops", icon: <LaptopMacIcon /> },
   { label: "TV", icon: <TvIcon /> },
   { label: "Earphones", icon: <HeadphonesIcon /> },
-  { label: "Audio", icon: <SpeakerIcon /> },
 ];
 
 const Category = () => {
@@ -29,7 +28,7 @@ const Category = () => {
       >
 <Typography
   sx={{
-    fontSize: { xs: 32, md: 38 },
+    fontSize: { xs: 24, sm: 28, md: 32 },
     fontWeight: 800,
     fontFamily: "Comfortaa, sans-serif",
     mb: 1,
@@ -42,9 +41,9 @@ const Category = () => {
 
 <Typography
   sx={{
-    fontSize: { xs: 32, md: 18 },
+    fontSize: { xs: 14, sm: 16, md: 18 },
     fontFamily: "Comfortaa, sans-serif",
-    mb: 5,
+    mb: 3,
     color: "#848482", // black
     textAlign: "center",
   }}
@@ -55,14 +54,15 @@ const Category = () => {
       </motion.div>
     <Grid
       container
-      spacing={{ xs: 2, sm: 3 }}
+      spacing={{ xs: 1, sm: 2, md: 3 }}
       justifyContent="space-around"
+      sx={{ px: { xs: 1, sm: 2 } }}
     >
       {categories.map((cat, index) => (
         <Grid
-          size={{ xs: 3, md: 2, lg: 1 }}
+          size={{ xs: 6, md: 4, lg: 2 }}
           key={index}
-          sx={{ textAlign: "center" }}
+          sx={{ textAlign: "center", mb: 2 }}
         >
           <motion.div
             whileHover={{ scale: 1.15 }}
@@ -72,8 +72,8 @@ const Category = () => {
             <Box
               sx={{
                 mx: "auto",
-                width: { xs: 44, sm: 86 },
-                height: { xs: 44, sm: 86 },
+                width: { xs: 56, sm: 64, md: 86 },
+                height: { xs: 56, sm: 64, md: 86 },
                 bgcolor: "#f7f1ffff",
                 //border: "2px solid #2f5c70ff",
                 borderRadius: "50%",
@@ -102,10 +102,12 @@ const Category = () => {
           <Typography
             sx={{
               fontFamily: "Comfortaa, sans-serif",
-              fontSize: { xs: 10, sm: 16 },
-              mt: 1.5,
+              fontSize: { xs: 12, sm: 14, md: 16 },
+              mt: 1,
               color: "#2f5c70ff",
               fontWeight: 600,
+              textAlign: "center",
+              px: 1,
             }}
           >
             {cat.label}
