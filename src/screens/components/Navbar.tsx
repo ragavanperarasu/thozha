@@ -23,26 +23,29 @@ export default function Navbar() {
 
   return (
     <>
-    <AppBar position="fixed" sx={{ bgcolor: "#AC74EC", boxShadow: "none" }}>
+    <AppBar position="fixed" sx={{ bgcolor: "#FFFFFF", boxShadow: "none" }}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", mt: 1, mb: 1 }}>
 
         {/* Left Logo */}
 <Box sx={{ display: "flex", alignItems: "center" }}>
   <Box
-    component="img"
-    src="logo.png"
-    alt="Thozha Logo"
     sx={{
-      height:42,
-      width: "auto",
+      fontSize: 30,
       cursor: "pointer",
+      color: "#ac63ffff",
+      letterSpacing: 1,
+      fontFamily: "Comfortaa",
+      fontWeight: 800,
     }}
-  />
+  >
+    Thozha Mobiles
+  </Box>
 </Box>
 
 
+
         {/* Search Box - Hidden now, replaced by search icon */}
-        {/* <Box
+        <Box
           sx={{
             flexGrow: 1,
             maxWidth: 500,
@@ -50,7 +53,7 @@ export default function Navbar() {
             alignItems: "center",
             mx: 2,
             bgcolor: "white",
-            borderRadius: 2,
+            borderRadius: 10,
             border: "1px solid #7c13f4",
             padding: "4px 10px",
             
@@ -60,31 +63,34 @@ export default function Navbar() {
           <InputBase
             placeholder="Search In Thozha"
             fullWidth
-            sx={{ fontFamily: "Comfortaa, sans-serif", fontSize: 17 }}
+            sx={{ fontFamily: "Comfortaa", fontSize: 17 }}
           />
-        </Box> */}
+        </Box>
 
         {/* <SearchBox /> */}
 
         {/* Right Icons */}
-        <Box sx={{ display: "flex", gap: 1 }}>
-          <IconButton color="inherit" onClick={toggleSearchOverlay}>
-            <SearchIcon />
-          </IconButton>
-          <IconButton color="inherit">
-            <ShoppingCartIcon />
-          </IconButton>
-          <IconButton color="inherit">
-            <AccountCircleIcon />
-          </IconButton>
-        </Box>
+<Box sx={{ display: "flex", gap: 1 }}>
+  <IconButton onClick={toggleSearchOverlay} sx={{ color: "#ac63ffff" }}>
+    <SearchIcon />
+  </IconButton>
+
+  <IconButton sx={{ color: "#ac63ffff" }}>
+    <ShoppingCartIcon />
+  </IconButton>
+
+  <IconButton sx={{ color: "#ac63ffff" }}>
+    <AccountCircleIcon />
+  </IconButton>
+</Box>
+
       </Toolbar>
 
       {/* Delivery Address */}
 
       
     </AppBar>
-    <SearchOverlay isOpen={isSearchOverlayOpen} onClose={toggleSearchOverlay} />
+    {/* <SearchOverlay isOpen={isSearchOverlayOpen} onClose={toggleSearchOverlay} /> */}
     </>
   );
 }

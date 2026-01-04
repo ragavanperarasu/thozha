@@ -5,7 +5,9 @@ import homepro from "../assets/homeapplicance.png";
 import electronic from "../assets/electronic.webp";
 import mobilepic from "../assets/mobile.webp";
 import Footer from "./components/Footer";
+import Category from "./components/Category";
 import { Link } from "react-router-dom";
+
 
 import m1 from "../assets/m1.jpeg";
 import m2 from "../assets/m2.jpeg";
@@ -25,8 +27,11 @@ import {
   Card,
   CardMedia,
   CardContent,
-  Stack,
+  Stack, Button
 } from "@mui/material";
+import { motion } from "framer-motion";
+
+import HeroSection from "./components/HeroSection";
 
 const products = [
   { id: 1, name: "Vivo Smart Phone", price: "₹89,999", img: m1 },
@@ -43,143 +48,20 @@ const Home = () => {
   return (
     <>
       <Navbar />
+      {/* <Category /> */}
+      <HeroSection />
 
-      {/* <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          mt: { xs: 8, sm: 10, md: 10 },
-          bgcolor: "#AC74EC",
-          py: 1,
-          width: "100%",
-        }}
+
+<Box sx={{ px: 2, mt: 8, mb: 10 }}>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}      // start lower and invisible
+        whileInView={{ opacity: 1, y: 0 }}   // animate into view
+        viewport={{ once: true, amount: 0.3 }} // trigger when 30% visible
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <Typography
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            fontFamily: "Comfortaa, sans-serif",
-            fontSize: 16,
-            pb: 1,
-            color: "white",
-          }}
-        >
-          Deliver to Chennai - 600128
-        </Typography>
-      </Box> */}
-
-      {/* Category Section */}
-      <Box
-        sx={{
-          display: "flex",
-          mt: { xs: 8, sm: 10, md: 10 },
-          justifyContent: "space-around",
-          bgcolor: "white",
-          py: 1,
-          px: 1,
-          // borderBottom: "1px solid #7c13f4",
-          backgroundColor:'#f4ebffff',
-          position: "sticky",
-          top: { xs: 70, sm: 80, md: 80 },
-          zIndex: 10,
-        }}
-      >
-        {/* Smartphone */}
-        <Box
-          sx={{
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            mr: 1,
-          }}
-        >
-          <Box
-            component="img"
-            src={mobilepic}
-            alt="Smartphones"
-            sx={{
-              width: { xs: 30, sm: 40, md: 50 },
-              height: { xs: 30, sm: 40, md: 50 },
-              color: "#7c13f4",
-            }}
-          />
-          <Typography
-            sx={{
-              fontFamily: "Comfortaa, sans-serif",
-              fontSize: { xs: 10, sm: 14, md: 16 },
-              color: "#7c13f4",
-            }}
-          >
-            Smart phones
-          </Typography>
-        </Box>
-
-        {/* Home Appliances */}
-        <Box
-          sx={{
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            gap: 2,
-            mr: 1,
-          }}
-        >
-          <Box
-            component="img"
-            src={homepro}
-            alt="Home Appliances"
-            sx={{
-              width: { xs: 30, sm: 40, md: 50 },
-              height: { xs: 30, sm: 40, md: 50 },
-              color: "#7c13f4",
-            }}
-          />
-          <Typography
-            sx={{
-              fontFamily: "Comfortaa, sans-serif",
-              fontSize: { xs: 10, sm: 14, md: 16 },
-              color: "#7c13f4",
-            }}
-          >
-            Home Appliances
-          </Typography>
-        </Box>
-
-        <Box
-          sx={{
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            gap: 2,
-          }}
-        >
-          <Box
-            component="img"
-            src={electronic}
-            alt="Electronic"
-            sx={{
-              width: { xs: 30, sm: 40, md: 50 },
-              height: { xs: 30, sm: 40, md: 50 },
-              color: "#7c13f4",
-            }}
-          />
-          <Typography
-            sx={{
-              fontFamily: "Comfortaa, sans-serif",
-              fontSize: { xs: 10, sm: 14, md: 16 },
-              color: "#7c13f4",
-            }}
-          >
-            Electronic
-          </Typography>
-        </Box>
-      </Box>
-
-
-
+        <Category />
+      </motion.div>
+    </Box>
 
  <Box sx={{ px: 2, mt: 3 }}>
         <Typography
