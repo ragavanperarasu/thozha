@@ -71,7 +71,7 @@ export default function Navbar() {
 
         {/* Right Icons */}
 <Box sx={{ display: "flex", gap: 1 }}>
-  <IconButton onClick={toggleSearchOverlay} sx={{ color: "#ac63ffff" }}>
+  <IconButton onClick={toggleSearchOverlay} sx={{ color: "#ac63ffff", display: { xs: "inline-flex", sm: "none" }, }}>
     <SearchIcon />
   </IconButton>
 
