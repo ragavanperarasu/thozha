@@ -224,7 +224,7 @@ const HeroSection = () => {
           </motion.div>
         </Grid>
 
-        {/* RIGHT - Hero Visual */}
+        {/* RIGHT - Three Column Infinite Vertical Loop Banners */}
         <Grid size={{ xs: 12, md: 6 }} sx={{ display: { xs: "none", md: "block" }, position: "relative" }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -234,54 +234,417 @@ const HeroSection = () => {
             <Box
               sx={{
                 position: "relative",
-                animation: "float 4s ease-in-out infinite",
-                "@keyframes float": {
-                  "0%, 100%": { transform: "translateY(0)" },
-                  "50%": { transform: "translateY(-15px)" },
+                height: 300,
+                overflow: "hidden",
+                "@keyframes scrollY": {
+                  "0%": { transform: "translateY(0)" },
+                  "100%": { transform: "translateY(-100%)" },
                 },
               }}
             >
-              {/* Main Card */}
+              {/* First Column - Infinite Loop */}
               <Box
                 sx={{
-                  width: "100%",
-                  maxWidth: 400,
-                  mx: "auto",
-                  aspectRatio: "1",
-                  borderRadius: 4,
-                  background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  position: "absolute",
                   display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  backdropFilter: "blur(10px)",
+                  flexDirection: "column",
+                  gap: 3,
+                  animation: "scrollY 20s linear infinite",
                 }}
               >
-                <Box sx={{ textAlign: "center", p: 4 }}>
-                  <Box
-                    sx={{
-                      width: 120,
-                      height: 120,
-                      mx: "auto",
-                      mb: 2,
-                      borderRadius: 3,
-                      background: "linear-gradient(135deg, #AC74EC 0%, #C99EF5 100%)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      boxShadow: "0 8px 30px rgba(172,116,236,0.4)",
-                    }}
-                  >
-                    <Typography sx={{ fontSize: "3rem" }}>📱</Typography>
-                  </Box>
-                  <Typography sx={{ color: "rgba(255,255,255,0.6) "}}>
-                    Premium Tech Awaits
-                  </Typography>
+                {/* 8 Different Icons for seamless loop */}
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>📱</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>⌚</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>🎧</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>💻</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>🔋</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>🎧</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>💻</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>🔋</Typography>
+                </Box>
+              </Box>
+              
+              {/* Second Column - Infinite Loop */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  left: 130, // Positioned to the right of first column
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 3,
+                  animation: "scrollY 20s linear infinite",
+                  animationDelay: "-6.66s", // Offset animation for variety
+                }}
+              >
+                {/* 8 Different Icons for seamless loop */}
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>🎧</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>💻</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>🔋</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>📱</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>⌚</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>📱</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>⌚</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>🎧</Typography>
+                </Box>
+              </Box>
+              
+              {/* Third Column - Infinite Loop */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  left: 260, // Positioned to the right of second column
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 3,
+                  animation: "scrollY 20s linear infinite",
+                  animationDelay: "-13.32s", // Offset animation for variety
+                }}
+              >
+                {/* 8 Different Icons for seamless loop */}
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>💻</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>🔋</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>📱</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>⌚</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>🎧</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>💻</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>🔋</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 240,
+                    borderRadius: 4,
+                    background: "linear-gradient(135deg, rgba(172,116,236,0.2) 0%, rgba(172,116,236,0.05) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "3rem" }}>📱</Typography>
                 </Box>
               </Box>
             </Box>
-            
-
           </motion.div>
         </Grid>
 
