@@ -16,34 +16,143 @@ import m3 from "../assets/m3.jpeg";
 import m4 from "../assets/m4.png";
 import m5 from "../assets/m5.jpeg";
 
-import d1 from "../assets/d1.jpg";
-import d2 from "../assets/d2.png";
-import d3 from "../assets/d3.png";
-import d4 from "../assets/d4.png";
 
-import {
-  Box,
-  Typography,
-  Grid,
-  Card,
-  CardMedia,
-  CardContent,
-  Stack, Button
-} from "@mui/material";
 import { motion } from "framer-motion";
 
 import HeroSection from "./components/HeroSection";
 
+import {
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+  Stack,
+  Button,
+  Rating,
+  Box,
+  IconButton,
+} from "@mui/material";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+
 const products = [
-  { id: 1, name: "Vivo Smart Phone", price: "₹89,999", img: m1 },
-  { id: 2, name: "Moto Smart Phone", price: "₹12,499", img: m2 },
-  { id: 3, name: "OnePlus Smart Phone", price: "₹24,999", img: m3 },
-  { id: 4, name: "Samsung Smart Phone", price: "₹45,999", img: m4 },
-  { id: 5, name: "Redmi Smart Phone", price: "₹13,999", img: m1 },
-  { id: 6, name: "Realme Smart Phone", price: "₹18,999", img: m5 },
-  // { id: 7, name: "Oppo Smart Phone", price: "₹22,499", img: m1 },
-  // { id: 8, name: "Asus Smart Phone", price: "₹28,999", img: m2 },
+  {
+    id: 1,
+    name: "Vivo V27 5G Smart Phone",
+    price: 89999,
+    originalPrice: 99999,
+    img: m1,
+    rating: 4.5,
+    reviews: 1243,
+    highlights: ["6.78 inch AMOLED", "128GB Storage", "50MP Camera", "44W Fast Charging"],
+    specifications: {
+      Brand: "Vivo",
+      Model: "V27 5G",
+      Color: "Aurora Blue",
+      Battery: "4500 mAh",
+      Charging: "44W Fast Charging",
+      Connectivity: "5G, Wi-Fi, Bluetooth 5.3",
+      Warranty: "1 Year",
+    },
+  },
+  {
+    id: 2,
+    name: "Moto G96 5G Smart Phone",
+    price: 12499,
+    originalPrice: 14999,
+    img: m2,
+    rating: 4,
+    reviews: 987,
+    highlights: ["6.6 inch AMOLED", "64GB Storage", "50MP Camera", "33W Fast Charging"],
+    specifications: {
+      Brand: "Moto",
+      Model: "G96 5G",
+      Color: "Black",
+      Battery: "5000 mAh",
+      Charging: "33W Fast Charging",
+      Connectivity: "5G, Wi-Fi, Bluetooth 5.2",
+      Warranty: "1 Year",
+    },
+  },
+  {
+    id: 3,
+    name: "OnePlus Nord CE 3 Lite",
+    price: 24999,
+    originalPrice: 27999,
+    img: m3,
+    rating: 4.2,
+    reviews: 765,
+    highlights: ["6.72 inch AMOLED", "128GB Storage", "108MP Camera", "33W Fast Charging"],
+    specifications: {
+      Brand: "OnePlus",
+      Model: "Nord CE 3 Lite",
+      Color: "Black",
+      Battery: "5000 mAh",
+      Charging: "33W Fast Charging",
+      Connectivity: "5G, Wi-Fi, Bluetooth 5.3",
+      Warranty: "1 Year",
+    },
+  },
+  {
+    id: 4,
+    name: "Samsung Galaxy M33 5G",
+    price: 45999,
+    originalPrice: 49999,
+    img: m4,
+    rating: 4.3,
+    reviews: 842,
+    highlights: ["6.6 inch TFT LCD", "128GB Storage", "50MP Camera", "25W Fast Charging"],
+    specifications: {
+      Brand: "Samsung",
+      Model: "Galaxy M33 5G",
+      Color: "Blue",
+      Battery: "6000 mAh",
+      Charging: "25W Fast Charging",
+      Connectivity: "5G, Wi-Fi, Bluetooth 5.1",
+      Warranty: "1 Year",
+    },
+  },
+  {
+    id: 5,
+    name: "Redmi Note 12 Pro",
+    price: 13999,
+    originalPrice: 16999,
+    img: m1,
+    rating: 4.1,
+    reviews: 654,
+    highlights: ["6.67 inch AMOLED", "128GB Storage", "108MP Camera", "67W Fast Charging"],
+    specifications: {
+      Brand: "Redmi",
+      Model: "Note 12 Pro",
+      Color: "Gray",
+      Battery: "5000 mAh",
+      Charging: "67W Fast Charging",
+      Connectivity: "5G, Wi-Fi, Bluetooth 5.2",
+      Warranty: "1 Year",
+    },
+  },
+  {
+    id: 6,
+    name: "Realme 11X Pro 5G",
+    price: 18999,
+    originalPrice: 21999,
+    img: m5,
+    rating: 4.2,
+    reviews: 712,
+    highlights: ["6.72 inch AMOLED", "128GB Storage", "200MP Camera", "67W Fast Charging"],
+    specifications: {
+      Brand: "Realme",
+      Model: "11X Pro 5G",
+      Color: "Black",
+      Battery: "5000 mAh",
+      Charging: "67W Fast Charging",
+      Connectivity: "5G, Wi-Fi, Bluetooth 5.3",
+      Warranty: "1 Year",
+    },
+  },
 ];
+
 
 const Home = () => {
   return (
@@ -79,174 +188,148 @@ const Home = () => {
           Top Products
         </Typography>
 
-        <Grid container spacing={2} justifyContent={"center"}>
-          {products.map((item) => (
-            <Grid key={item.id} item size={{ xs: 6, md: 4, lg: 2 }}>
-              <Card
-              component={Link}
-  to={`/product/1`}
-                sx={{ borderRadius: 3,boxShadow:'none', pt: 3 }}
-              >
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={item.img}
-                  alt={item.name}
-                  style={{ objectFit: "contain", padding: 10 }}
-                />
+       
 
-                <CardContent sx={{ textAlign: "center" }}>
-                  <Typography sx={{ fontFamily: "Comfortaa", fontSize: 14 }}>
-                    {item.name}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: "Comfortaa",
-                      fontSize: 16,
-                      fontWeight: "bold",
-                      color: "#7c13f4",
-                    }}
-                  >
-                    {item.price}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-
-
-      <Box sx={{ px: 2, mt: 3 }}>
-        <Typography
-          sx={{
-            fontFamily: "Comfortaa, sans-serif",
-            fontSize: 20,
-            fontWeight: "bold",
-            mb: 2,
-            color: "#7c13f4",
-          }}
-        >
-          Top Discounts
-        </Typography>
-
-
-
-        
-
-        <Grid container spacing={2}>
-  {/* LEFT BIG IMAGE */}
-  <Grid size={{ xs: 12, md: 6, lg: 8 }} >
-    <CardMedia
-      component="img"
-      image={d1}
-      style={{
-        width: "100%",
-        height: "100%",
-        objectFit: "cover",
-        borderRadius: 8,
-      }}
-    />
-  </Grid>
-
-  {/* RIGHT 3 SMALL IMAGES */}
-  <Grid size={{ xs: 12, md: 6, lg: 4 }}>
-    <Stack spacing={2}>
-      {[d3, d4].map((img, index) => (
-        <CardMedia
-          key={index}
-          component="img"
-          image={img}
-          style={{
-            width: "100%",
-            height: "10",
-           
-            borderRadius: 8,
-          }}
-        />
-      ))}
-    </Stack>
-  </Grid>
-</Grid>
-
-        {/* <Grid container spacing={2} justifyContent={'center'}>
-    <Grid item size={{xs:6, md:4, lg:2}} >
-      <Card sx={{ borderRadius: 3, border: "1px solid #7c13f4", pt: 3 }}>
+<Grid container spacing={3} justifyContent="center">
+  {products.map((item) => (
+    <Grid
+      key={item.id}
+      item
+      xs={6}
+      sm={4}
+      md={3}
+      lg={2.4}
+      sx={{ display: "flex", justifyContent: "center" }}
+    >
+      <Card
+        component={Link}
+        to={`/product/${item.id}`}
+        sx={{
+          borderRadius: 3,
+          boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+          transition: "0.3s",
+          width: "100%",
+          "&:hover": {
+            transform: "translateY(-5px)",
+            boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
+          },
+          textDecoration: "none",
+          color: "inherit",
+          p: 2,
+        }}
+      >
+        {/* Product Image */}
         <CardMedia
           component="img"
-          height="150"
-          image={products[0].img}
-          alt={products[0].name}
-          style={{ objectFit: "contain", padding: 10 }}
+          height="180"
+          image={item.img}
+          alt={item.name}
+          sx={{ objectFit: "contain", mb: 2 }}
         />
 
-        <CardContent sx={{ textAlign: "center" }}>
-          <Typography sx={{ fontFamily: "Comfortaa", fontSize: 14 }}>
-            {products[0].name}
-          </Typography>
+        {/* Product Info */}
+        <CardContent sx={{ textAlign: "center", p: 0 }}>
           <Typography
             sx={{
               fontFamily: "Comfortaa",
-              fontSize: 16,
-              fontWeight: "bold",
-              color: "#7c13f4",
+              fontSize: 14,
+              fontWeight: 500,
+              mb: 0.5,
+              height: 40,
+              overflow: "hidden",
             }}
           >
-            {products[0].price}
+            {item.name}
           </Typography>
+
+          {/* Price + Discount */}
+          <Stack direction="row" justifyContent="center" alignItems="center" spacing={1}>
+            <Typography
+              sx={{
+                fontFamily: "Comfortaa",
+                fontSize: 16,
+                fontWeight: "bold",
+                color: "#7c13f4",
+              }}
+            >
+              ₹{item.price}
+            </Typography>
+
+            {item.originalPrice && item.originalPrice > item.price && (
+              <>
+                <Typography
+                  sx={{
+                    fontFamily: "Comfortaa",
+                    fontSize: 14,
+                    textDecoration: "line-through",
+                    color: "#888",
+                  }}
+                >
+                  ₹{item.originalPrice}
+                </Typography>
+
+                <Typography
+                  sx={{
+                    fontFamily: "Comfortaa",
+                    fontSize: 12,
+                    color: "green",
+                    fontWeight: 600,
+                    bgcolor: "#e0f2f1",
+                    px: 0.8,
+                    py: 0.2,
+                    borderRadius: 1,
+                  }}
+                >
+                  {Math.round(((item.originalPrice - item.price) / item.originalPrice) * 100)}% OFF
+                </Typography>
+              </>
+            )}
+          </Stack>
+
+          {/* Rating */}
+          {item.rating && (
+            <Stack direction="row" justifyContent="center" alignItems="center" spacing={0.5} mt={0.5}>
+              <Rating value={item.rating} precision={0.5} size="small" readOnly />
+              <Typography variant="caption" sx={{ color: "#666" }}>
+                ({item.reviews})
+              </Typography>
+            </Stack>
+          )}
         </CardContent>
+
+        {/* Quick Action Buttons */}
+        <Stack direction="row" spacing={1} justifyContent="center" mt={1}>
+          <IconButton
+            size="small"
+            sx={{
+              border: "1px solid #ccc",
+              "&:hover": { borderColor: "#7c13f4", color: "#7c13f4" },
+            }}
+          >
+            <ShoppingCartOutlinedIcon fontSize="small" />
+          </IconButton>
+
+          <IconButton
+            size="small"
+            sx={{
+              border: "1px solid #ccc",
+              "&:hover": { borderColor: "#f50057", color: "#f50057" },
+            }}
+          >
+            <FavoriteBorderIcon fontSize="small" />
+          </IconButton>
+        </Stack>
       </Card>
     </Grid>
-</Grid> */}
+  ))}
+</Grid>
+
+
+
       </Box>
 
-      <Box sx={{ px: 2, mt: 3 }}>
-        <Typography
-          sx={{
-            fontFamily: "Comfortaa, sans-serif",
-            fontSize: 20,
-            fontWeight: "bold",
-            mb: 2,
-            color: "#7c13f4",
-          }}
-        >
-          Top Products
-        </Typography>
 
-        <Grid container spacing={2} justifyContent={"center"}>
-          {products.map((item) => (
-            <Grid key={item.id} item size={{ xs: 6, md: 4, lg: 2 }}>
-              <Card
-                sx={{ borderRadius: 3, border: "1px solid #7c13f4", pt: 3 }}
-              >
-                <CardMedia
-                  component="img"
-                  height="150"
-                  image={item.img}
-                  alt={item.name}
-                  style={{ objectFit: "contain", padding: 10 }}
-                />
-
-                <CardContent sx={{ textAlign: "center" }}>
-                  <Typography sx={{ fontFamily: "Comfortaa", fontSize: 14 }}>
-                    {item.name}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: "Comfortaa",
-                      fontSize: 16,
-                      fontWeight: "bold",
-                      color: "#7c13f4",
-                    }}
-                  >
-                    {item.price}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+    
       <Footer/>
     </>
   );
