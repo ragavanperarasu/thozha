@@ -1,3 +1,4 @@
+import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -9,31 +10,42 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SearchBox from "./SearchBox";
+import SearchOverlay from "./SearchOverlay";
 
 
 
 export default function Navbar() {
+  const [isSearchOverlayOpen, setIsSearchOverlayOpen] = useState(false);
+
+  const toggleSearchOverlay = () => {
+    setIsSearchOverlayOpen(!isSearchOverlayOpen);
+  };
+
   return (
-    <AppBar position="fixed" sx={{ bgcolor: "#AC74EC", boxShadow: "none" }}>
+    <>
+    <AppBar position="fixed" sx={{ bgcolor: "#FFFFFF", boxShadow: "none" }}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", mt: 1, mb: 1 }}>
 
         {/* Left Logo */}
 <Box sx={{ display: "flex", alignItems: "center" }}>
   <Box
-    component="img"
-    src="logo.png"
-    alt="Thozha Logo"
     sx={{
-      height:42,
-      width: "auto",
+      fontSize: 30,
       cursor: "pointer",
+      color: "#ac63ffff",
+      letterSpacing: 1,
+      fontFamily: "Comfortaa",
+      fontWeight: 800,
     }}
-  />
+  >
+    Thozha
+  </Box>
 </Box>
 
 
-        {/* Search Box */}
-        {/* <Box
+
+        {/* Search Box - Hidden now, replaced by search icon */}
+        <Box
           sx={{
             flexGrow: 1,
             maxWidth: 500,
@@ -41,7 +53,7 @@ export default function Navbar() {
             alignItems: "center",
             mx: 2,
             bgcolor: "white",
-            borderRadius: 2,
+            borderRadius: 10,
             border: "1px solid #7c13f4",
             padding: "4px 10px",
             
@@ -51,26 +63,34 @@ export default function Navbar() {
           <InputBase
             placeholder="Search In Thozha"
             fullWidth
-            sx={{ fontFamily: "Comfortaa, sans-serif", fontSize: 17 }}
+            sx={{ fontFamily: "Comfortaa", fontSize: 17 }}
           />
-        </Box> */}
+        </Box>
 
-        <SearchBox />
+        {/* <SearchBox /> */}
 
         {/* Right Icons */}
-        <Box sx={{ display: "flex", gap: 1 }}>
-          <IconButton color="inherit">
-            <ShoppingCartIcon />
-          </IconButton>
-          <IconButton color="inherit">
-            <AccountCircleIcon />
-          </IconButton>
-        </Box>
+<Box sx={{ display: "flex", gap: 1 }}>
+  <IconButton onClick={toggleSearchOverlay} sx={{ color: "#ac63ffff", display: { xs: "inline-flex", sm: "none" }, }}>
+    <SearchIcon />
+  </IconButton>
+
+  <IconButton sx={{ color: "#ac63ffff" }}>
+    <ShoppingCartIcon />
+  </IconButton>
+
+  <IconButton sx={{ color: "#ac63ffff" }}>
+    <AccountCircleIcon />
+  </IconButton>
+</Box>
+
       </Toolbar>
 
       {/* Delivery Address */}
 
       
     </AppBar>
+    {/* <SearchOverlay isOpen={isSearchOverlayOpen} onClose={toggleSearchOverlay} /> */}
+    </>
   );
 }
