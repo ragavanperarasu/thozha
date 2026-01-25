@@ -39,7 +39,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 const products = [
   {
     id: 1,
-    name: "Vivo V27 5G Smart Phone",
+    name: "Vivo V27 5G Smart Phone first indian mobile",
     price: 89999,
     originalPrice: 99999,
     img: m1,
@@ -96,7 +96,7 @@ const products = [
   },
   {
     id: 4,
-    name: "Samsung Galaxy M33 5G",
+    name: "Samsung Galaxy M33 5G 128 gb ram 125 storage",
     price: 45999,
     originalPrice: 49999,
     img: m4,
@@ -134,7 +134,7 @@ const products = [
   },
   {
     id: 6,
-    name: "Realme 11X Pro 5G",
+    name: "Realme 11X Pro 5G blue color variante",
     price: 18999,
     originalPrice: 21999,
     img: m5,
@@ -199,14 +199,14 @@ const Home = () => {
       sm={4}
       md={3}
       lg={2.4}
-      sx={{ display: "flex", justifyContent: "center" }}
+      sx={{ display: "flex", justifyContent: "center", width:350}}
     >
       <Card
         component={Link}
-        to={`/product/${item.id}`}
+        to={`/product/1`}
         sx={{
           borderRadius: 3,
-          boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+          border:"1px solid #979797",
           transition: "0.3s",
           width: "100%",
           "&:hover": {
@@ -214,36 +214,53 @@ const Home = () => {
             boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
           },
           textDecoration: "none",
+          boxShadow:'none',
           color: "inherit",
-          p: 2,
+          px: 2,
         }}
       >
         {/* Product Image */}
         <CardMedia
           component="img"
-          height="180"
+          height="230"
           image={item.img}
           alt={item.name}
-          sx={{ objectFit: "contain", mb: 2 }}
+          sx={{ objectFit: "contain", mb: 2, mt:2 }}
         />
 
+
+
         {/* Product Info */}
-        <CardContent sx={{ textAlign: "center", p: 0 }}>
-          <Typography
-            sx={{
-              fontFamily: "Comfortaa",
-              fontSize: 14,
-              fontWeight: 500,
-              mb: 0.5,
-              height: 40,
-              overflow: "hidden",
-            }}
-          >
-            {item.name}
-          </Typography>
+        <CardContent sx={{  p: 0 }}>
+
+                            {/* Rating */}
+          {item.rating && (
+            <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={0.5} mt={1} >
+              <Rating value={item.rating} precision={0.5} size="small" readOnly />
+              <Typography variant="caption" sx={{ color: "#666" }}>
+                ({item.reviews})
+              </Typography>
+            </Stack>
+          )}
+
+<Typography
+  sx={{
+    fontFamily: "Comfortaa",
+    fontSize: 14,
+    fontWeight: 500,
+    my: 1,
+    height: 40,
+    overflow: "hidden",
+  }}
+>
+  {item.name.length > 50
+    ? item.name.slice(0, 50) + "..."
+    : item.name}
+</Typography>
+
 
           {/* Price + Discount */}
-          <Stack direction="row" justifyContent="center" alignItems="center" spacing={1}>
+          <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={1} >
             <Typography
               sx={{
                 fontFamily: "Comfortaa",
@@ -286,39 +303,9 @@ const Home = () => {
             )}
           </Stack>
 
-          {/* Rating */}
-          {item.rating && (
-            <Stack direction="row" justifyContent="center" alignItems="center" spacing={0.5} mt={0.5}>
-              <Rating value={item.rating} precision={0.5} size="small" readOnly />
-              <Typography variant="caption" sx={{ color: "#666" }}>
-                ({item.reviews})
-              </Typography>
-            </Stack>
-          )}
+
         </CardContent>
 
-        {/* Quick Action Buttons */}
-        <Stack direction="row" spacing={1} justifyContent="center" mt={1}>
-          <IconButton
-            size="small"
-            sx={{
-              border: "1px solid #ccc",
-              "&:hover": { borderColor: "#7c13f4", color: "#7c13f4" },
-            }}
-          >
-            <ShoppingCartOutlinedIcon fontSize="small" />
-          </IconButton>
-
-          <IconButton
-            size="small"
-            sx={{
-              border: "1px solid #ccc",
-              "&:hover": { borderColor: "#f50057", color: "#f50057" },
-            }}
-          >
-            <FavoriteBorderIcon fontSize="small" />
-          </IconButton>
-        </Stack>
       </Card>
     </Grid>
   ))}
