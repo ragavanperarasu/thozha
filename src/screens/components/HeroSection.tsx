@@ -111,7 +111,7 @@ const HeroSection = () => {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: 26.46, md: 46.31 }, // Increased by 10% from 5%: 25.2->26.46, 44.1->46.31
+                fontSize: { xs: 39.69, md: 69.47 }, // Increased by 50% from original: 26.46->39.69, 46.31->69.47
                 fontWeight: 800,
                 fontFamily: "Comfortaa, sans-serif",
                 mb: 1,
@@ -135,7 +135,7 @@ const HeroSection = () => {
             <Typography
               variant="h6"
               sx={{
-                fontSize: { xs: 17.64, md: 19.85 }, // Increased by 10% from 5%: 16.8->17.64, 18.9->19.85
+                fontSize: { xs: 26.46, md: 29.78 }, // Increased by 50% from original: 17.64->26.46, 19.85->29.78
                 fontFamily: "Comfortaa, sans-serif",
                 color: "#e2e8f0",
                 mb: 1,
@@ -150,7 +150,7 @@ const HeroSection = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: { xs: 13.23, md: 15.44 }, // Increased by 10% from 5%: 12.6->13.23, 14.7->15.44
+                fontSize: { xs: 19.85, md: 23.16 }, // Increased by 50% from original: 13.23->19.85, 15.44->23.16
                 fontFamily: "Comfortaa, sans-serif",
                 color: "#cbd5f5",
                 mb: 2,
@@ -239,12 +239,12 @@ const HeroSection = () => {
                     sx={{ 
                       color: "white", 
                       fontWeight: 700,
-                      fontSize: { xs: 22.05, md: 30.87 }, // Increased by 10% from 5%: 21->22.05, 29.4->30.87
+                      fontSize: { xs: 33.08, md: 46.31 }, // Increased by 50% from original: 22.05->33.08, 30.87->46.31
                     }}
                   >
                     {stat.value}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.5)", fontSize: { xs: 11.03, md: 13.23 } }}>
+                  <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.5)", fontSize: { xs: 16.55, md: 19.85 } }}>
                     {stat.label}
                   </Typography>
                 </Box>
